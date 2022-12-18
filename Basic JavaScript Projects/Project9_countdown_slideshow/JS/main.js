@@ -32,15 +32,21 @@ function slideshow(n) {
 
 // I didn't end up using this countdown in my slideshow, but it is required
 // for this assignment so here it is 
-function countdown(n) {
-    var seconds = n;
+function countdown() {
+    let timer = document.getElementById("timer");
+    var s = document.getElementById("seconds").value;
+    if (isNaN(s)) { return; }
+    if (s < 0) { return; }
+    var seconds = Math.trunc(s);
 
     function tick() {
+        timer.innerHTML = seconds;
         seconds = seconds - 1;
         var time = setTimeout(tick, 1000);
         if (seconds == -1) {
+            alert("Time is up!");
             clearTimeout(time);
-            return;
+            timer.innerHTML = "";
         }
     }
     tick();
