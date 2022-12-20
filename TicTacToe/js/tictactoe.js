@@ -60,7 +60,7 @@ function checkWinConditions() {
     //Tie conditions
     else if (selectedSquares.length >= 9) {
         audio("./media/tie.mp3");
-        setTimeout(function () { resetGame(); }, 4000);
+        setTimeout(function () { resetGame(); }, 1000);
     } else {
         if (activePlayer === 'X') {
             activePlayer = 'O';
@@ -130,16 +130,17 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
             if (y > y2) { y -= 10; }
             if (x >= x2 && y <= y2) { cancelAnimationFrame(animationLoop); }
         }
-
-        function clear() {
-            const animationLoop = requestAnimationFrame(clear);
-            c.clearRect(0, 0, 608, 608);
-            cancelAnimationFrame(animationLoop);
-        }
-
-        //wait 1 sec, clear canvas and reset game
-        setTimeout(function () { clear(); resetGame(); }, 4000);
     }
+
+    function clear() {
+        const animationLoop = requestAnimationFrame(clear);
+        c.clearRect(0, 0, 608, 608);
+        cancelAnimationFrame(animationLoop);
+    }
+
+    //wait 1 sec, clear canvas and reset game
+    setTimeout(function () { clear(); resetGame(); }, 4000);
+    
 }
 
 function resetGame() {
