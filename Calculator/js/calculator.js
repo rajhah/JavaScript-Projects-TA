@@ -74,7 +74,7 @@ function Handle_Operator(Next_Operator) {
     Calculator.operator = Next_Operator;
 }
 
-// This is actually an array of functions (wild!)
+// This is actually a dictionary of functions (wild!)
 // Access the desired function according to which operator we passed in earlier
 // Do math on the two values that we passed as parameters
 const Perform_Calculation = {
